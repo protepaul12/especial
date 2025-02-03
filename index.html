@@ -11,10 +11,10 @@
             align-items: center;
             flex-direction: column;
             height: 100vh;
-            background-color: #ffdde1;
             font-family: Arial, sans-serif;
             margin: 0;
             overflow: hidden;
+            transition: background-color 0.5s, background-image 1s;
         }
 
         .container {
@@ -93,8 +93,12 @@
             }, 4000);
         }
 
-        // Función para mostrar los corazones flotantes cuando se presiona el botón "SI 😫💗"
+        // Función para cambiar el fondo y mostrar el mensaje de aceptación
         function aceptar() {
+            // Cambiar el fondo a algo bonito y romántico
+            document.body.style.backgroundImage = "url('https://www.example.com/romantic-background.jpg')";
+            document.body.style.backgroundColor = "#ffdde1"; // Color suave de fondo
+
             // Mostrar el mensaje de aceptación
             document.getElementById("mensaje").innerHTML = "TEAMOO MUCHO MI VIDA";
             document.getElementById("mensaje").style.color = "#ff4b5c";
@@ -104,8 +108,12 @@
             setInterval(crearCorazon, 500);
         }
 
-        // Función para mostrar el mensaje de rechazo cuando se presiona el botón "NOO QUE ASCOO NUV 🤮"
+        // Función para cambiar el fondo y mostrar el mensaje de rechazo
         function rechazar() {
+            // Cambiar el fondo a algo triste y gris
+            document.body.style.backgroundImage = "url('https://www.example.com/sad-background.jpg')";
+            document.body.style.backgroundColor = "#3e3e3e"; // Fondo oscuro
+
             // Mostrar el mensaje de rechazo
             document.getElementById("mensaje").innerHTML = "UHHH :c";
             document.getElementById("mensaje").style.color = "#3e3e3e";
