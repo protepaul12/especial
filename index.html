@@ -27,50 +27,71 @@
             justify-content: center;
             align-items: center;
             transition: opacity 1s ease-in-out;
+            opacity: 0;
+            animation: aparecerPantalla 2s forwards; /* Animación de aparición de la pantalla de inicio */
         }
 
         .pantalla-inicio h1 {
-            font-size: 32px;
-            color: white; /* Texto blanco */
+            font-size: 40px;
+            color: white;
             font-family: 'Georgia', serif;
             margin-bottom: 20px;
+            animation: deslizarIzquierda 1s ease-out;
         }
 
         .mensaje-poema {
             font-size: 24px;
-            color: white; /* Texto blanco */
+            color: white;
             font-family: 'Dancing Script', cursive;
             margin: 20px 0;
             padding: 20px 30px;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con transparencia */
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
             text-align: center;
             line-height: 1.6;
             max-width: 80%;
             margin-bottom: 30px;
+            animation: deslizarArriba 1.5s ease-out 1s;
         }
 
         .boton-inicio {
-            background-color: #1e1e1e; /* Fondo oscuro */
-            color: white; /* Texto blanco */
-            border: 2px solid white; /* Borde blanco */
+            background-color: #1e1e1e;
+            color: white;
+            border: 2px solid white;
             padding: 15px 30px;
             font-size: 20px;
             cursor: pointer;
             border-radius: 10px;
             margin-top: 20px;
             transition: background-color 0.3s ease;
-            opacity: 0; /* Inicialmente oculto */
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: aparecer 1s forwards; /* Animación de aparición */
+            opacity: 0;
+            animation: aparecerBoton 2s forwards 1.5s;
         }
 
         .boton-inicio:hover {
-            background-color: white; /* Fondo blanco al pasar el mouse */
-            color: #1e1e1e; /* Texto oscuro al pasar el mouse */
+            background-color: white;
+            color: #1e1e1e;
+        }
+
+        /* Animaciones */
+        @keyframes aparecerPantalla {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes deslizarIzquierda {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes deslizarArriba {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes aparecerBoton {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         /* Pétalos animados */
@@ -92,11 +113,6 @@
             }
         }
 
-        @keyframes aparecer {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
         /* Estilo para el video de YouTube */
         #videoContainer {
             display: none;
@@ -116,7 +132,6 @@
             border: none;
         }
 
-        /* Fuente personalizada para el poema */
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
     </style>
 </head>
