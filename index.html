@@ -21,7 +21,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: #ffccd5;
+            background-color: #1e1e1e; /* Fondo negro */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -31,7 +31,23 @@
 
         .pantalla-inicio h1 {
             font-size: 32px;
-            color: #d63384;
+            color: #ff4d6d;
+            font-family: 'Georgia', serif;
+            margin-bottom: 20px;
+        }
+
+        .mensaje-poema {
+            font-size: 24px;
+            color: #ffffff;
+            font-family: 'Georgia', serif;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            text-align: center;
+            line-height: 1.6;
+            max-width: 80%;
+            margin-bottom: 30px;
         }
 
         .boton-inicio {
@@ -54,17 +70,6 @@
 
         .boton-inicio:hover {
             background-color: #d63384;
-        }
-
-        .mensaje {
-            font-size: 40px;
-            font-weight: bold;
-            color: white;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: aparecer 1s forwards;
         }
 
         /* Pétalos animados */
@@ -116,8 +121,18 @@
     <!-- Pantalla de inicio -->
     <div class="pantalla-inicio" id="pantallaInicio">
         <img src="https://postimg.cc/SXTvxs8w" alt="Imagen principal" style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="mensaje">Regalito 👇</div> <!-- Texto en lugar del dedo -->
-        <button class="boton-inicio" onclick="mostrarVideo()">Abrir Regalito 💝</button>
+        <div class="mensaje-poema">
+            <p>Amor mío, hoy te traigo un regalo,  
+               con cariño y todo mi ser.  
+               Un regalo que expresa lo que siento,  
+               por ti, mi amor, te quiero ver.  
+               El 14 de febrero, el día del amor,  
+               es solo un recordatorio de mi devoción.  
+               Eres mi razón, mi sol, mi calor,  
+               en mi corazón, eres mi canción.  
+            </p>
+        </div>
+        <button class="boton-inicio" onclick="mostrarVideo()">Click acá amor 💝</button>
         <h1>🎁 Regalito Lessa 🎁</h1>
     </div>
 
