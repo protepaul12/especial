@@ -54,15 +54,29 @@
         button:hover {
             background-color: #ff1e2e;
         }
+
+        .mensaje {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            color: #ff4b5c;
+            font-weight: bold;
+            display: none;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>💖 ¿Quieres ser mi San Valentín? 💖</h1>
-        <button onclick="mostrarCorazones()">¡Sí, quiero!</button>
-        <button onclick="mostrarMensaje()">¡Gracias!</button>
+        <button onclick="aceptar()">SI 😫💗</button>
+        <button onclick="rechazar()">NOO QUE ASCOO NUV 🤮</button>
     </div>
+
+    <div id="mensaje" class="mensaje"></div>
 
     <script>
         // Función para crear corazones flotantes
@@ -79,27 +93,23 @@
             }, 4000);
         }
 
-        // Función para mostrar los corazones flotantes cuando se presiona el botón "¡Sí, quiero!"
-        function mostrarCorazones() {
+        // Función para mostrar los corazones flotantes cuando se presiona el botón "SI 😫💗"
+        function aceptar() {
+            // Mostrar el mensaje de aceptación
+            document.getElementById("mensaje").innerHTML = "TEAMOO MUCHO MI VIDA";
+            document.getElementById("mensaje").style.color = "#ff4b5c";
+            document.getElementById("mensaje").style.display = "block";
+
+            // Crear corazones flotantes
             setInterval(crearCorazon, 500);
         }
 
-        // Función para mostrar un mensaje adicional cuando se presiona el botón "¡Gracias!"
-        function mostrarMensaje() {
-            const mensaje = document.createElement("div");
-            mensaje.style.position = "absolute";
-            mensaje.style.top = "70%";
-            mensaje.style.left = "50%";
-            mensaje.style.transform = "translateX(-50%)";
-            mensaje.style.fontSize = "24px";
-            mensaje.style.color = "#ff4b5c";
-            mensaje.style.fontWeight = "bold";
-            mensaje.innerHTML = "¡Gracias por ser mi San Valentín! 💖";
-            document.body.appendChild(mensaje);
-
-            setTimeout(() => {
-                mensaje.remove();
-            }, 3000);
+        // Función para mostrar el mensaje de rechazo cuando se presiona el botón "NOO QUE ASCOO NUV 🤮"
+        function rechazar() {
+            // Mostrar el mensaje de rechazo
+            document.getElementById("mensaje").innerHTML = "UHHH :c";
+            document.getElementById("mensaje").style.color = "#3e3e3e";
+            document.getElementById("mensaje").style.display = "block";
         }
     </script>
 
