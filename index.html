@@ -34,10 +34,20 @@
             animation: flotar 4s infinite ease-in-out;
         }
 
+        .llorar {
+            animation: llorar 6s infinite ease-in-out;
+        }
+
         @keyframes flotar {
             0% { transform: translateY(0); opacity: 1; }
             50% { transform: translateY(-50px); opacity: 0.5; }
             100% { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        @keyframes llorar {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-70px); opacity: 0.5; }
+            100% { transform: translateY(-120vh); opacity: 0; }
         }
 
         @keyframes carta {
@@ -117,6 +127,21 @@
             }, 4000);
         }
 
+        // Función para crear los emojis de llorar flotantes cuando se rechaza
+        function crearLlorar() {
+            const llorar = document.createElement("div");
+            llorar.classList.add("llorar");
+            llorar.innerHTML = "😢";
+            llorar.style.left = Math.random() * window.innerWidth + "px"; // Se distribuyen en el ancho de la pantalla
+            llorar.style.top = window.innerHeight + "px"; // Empiezan desde el fondo
+            document.body.appendChild(llorar);
+
+            // Elimina el emoji de llorar después de un tiempo
+            setTimeout(() => {
+                llorar.remove();
+            }, 6000);
+        }
+
         // Función para aceptar y cambiar a un fondo de gato
         function aceptar() {
             // Cambiar el fondo a la imagen del gato
@@ -151,7 +176,7 @@
             document.getElementById("mensaje").style.display = "block";
 
             // Crear el emoji de llorar flotante
-            setInterval(() => { crearCorazon("😢"); }, 200);
+            setInterval(crearLlorar, 500); // El emoji de llorar flotará a intervalos
         }
     </script>
 
