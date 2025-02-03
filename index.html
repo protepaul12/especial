@@ -103,10 +103,10 @@
 
     <script>
         // Función para crear los corazones flotantes cuando se acepta
-        function crearCorazon() {
+        function crearCorazon(emoji) {
             const corazon = document.createElement("div");
             corazon.classList.add("corazon");
-            corazon.innerHTML = "💗💖❤️💞";
+            corazon.innerHTML = emoji;
             corazon.style.left = Math.random() * window.innerWidth + "px"; // Se distribuyen en el ancho de la pantalla
             corazon.style.top = window.innerHeight + "px"; // Empiezan desde el fondo
             document.body.appendChild(corazon);
@@ -131,7 +131,10 @@
             document.getElementById("mensaje").style.display = "block";
 
             // Crear corazones flotantes
-            setInterval(crearCorazon, 200); // Se crean más corazones, cada 200ms
+            setInterval(() => { crearCorazon("💗"); }, 200);
+            setInterval(() => { crearCorazon("💖"); }, 300);
+            setInterval(() => { crearCorazon("❤️"); }, 400);
+            setInterval(() => { crearCorazon("💞"); }, 500);
         }
 
         // Función para rechazar y cambiar a lluvia
@@ -142,10 +145,13 @@
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundPosition = "center";
 
-            // Mostrar el emoji de llorar
-            document.getElementById("mensaje").innerHTML = "😢";
+            // Mostrar el mensaje de rechazo
+            document.getElementById("mensaje").innerHTML = "No me amas... ya lo sabía 😿";
             document.getElementById("mensaje").style.color = "black"; // Cambiar el color a negro
             document.getElementById("mensaje").style.display = "block";
+
+            // Crear el emoji de llorar flotante
+            setInterval(() => { crearCorazon("😢"); }, 200);
         }
     </script>
 
