@@ -19,6 +19,7 @@
 
         .container {
             text-align: center;
+            animation: carta 2s ease-in-out;
         }
 
         h1 {
@@ -40,13 +41,23 @@
             100% { transform: translateY(-100px); opacity: 0; }
         }
 
+        @keyframes carta {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .botones {
+            margin-top: 20px;
+        }
+
         button {
             padding: 10px 20px;
             font-size: 18px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
+            margin: 10px;
+            transition: background-color 0.3s;
         }
 
         .si {
@@ -83,8 +94,10 @@
 
     <div class="container">
         <h1>💖 ¿Quieres ser mi San Valentín? 💖</h1>
-        <button class="si" onclick="aceptar()">SI 😫💗</button>
-        <button class="no" onclick="rechazar()">NOO QUE ASCOO NUV 🤮</button>
+        <div class="botones">
+            <button class="si" onclick="aceptar()">SI 😫💗</button>
+            <button class="no" onclick="rechazar()">NOO QUE ASCOO NUV 🤮</button>
+        </div>
     </div>
 
     <div id="mensaje" class="mensaje"></div>
@@ -104,11 +117,11 @@
             }, 4000);
         }
 
-        // Función para aceptar y cambiar el fondo a romántico
+        // Función para aceptar y cambiar a un campo bonito
         function aceptar() {
-            // Cambiar el fondo a algo bonito y romántico
-            document.body.style.backgroundImage = "url('https://www.example.com/romantic-background.jpg')";
-            document.body.style.backgroundColor = "#ffdde1"; // Color suave de fondo
+            // Cambiar el fondo a un campo bonito y flores
+            document.body.style.backgroundImage = "url('https://www.example.com/beautiful-field.jpg')";
+            document.body.style.backgroundColor = "#c5e8e7"; // Color de campo hermoso
 
             // Mostrar el mensaje de aceptación
             document.getElementById("mensaje").innerHTML = "TEAMOO MUCHO MI VIDA";
@@ -119,15 +132,15 @@
             setInterval(crearCorazon, 500);
         }
 
-        // Función para rechazar y cambiar el fondo a triste
+        // Función para rechazar y cambiar a infierno
         function rechazar() {
-            // Cambiar el fondo a algo triste y gris
-            document.body.style.backgroundImage = "url('https://www.example.com/sad-background.jpg')";
-            document.body.style.backgroundColor = "#3e3e3e"; // Fondo oscuro
+            // Cambiar el fondo a un infierno (puedes cambiar la imagen aquí)
+            document.body.style.backgroundImage = "url('https://www.example.com/hell-background.jpg')";
+            document.body.style.backgroundColor = "#6f2b2b"; // Fondo oscuro y siniestro
 
             // Mostrar el mensaje de rechazo
             document.getElementById("mensaje").innerHTML = "UHHH :c";
-            document.getElementById("mensaje").style.color = "#3e3e3e";
+            document.getElementById("mensaje").style.color = "#ff4b5c";
             document.getElementById("mensaje").style.display = "block";
         }
     </script>
