@@ -112,6 +112,9 @@
     <div id="mensaje" class="mensaje"></div>
 
     <script>
+        let intervalCorazones;
+        let intervalLlorar;
+
         // Función para crear los corazones flotantes cuando se acepta
         function crearCorazon(emoji) {
             const corazon = document.createElement("div");
@@ -144,6 +147,10 @@
 
         // Función para aceptar y cambiar a un fondo de gato
         function aceptar() {
+            // Detener cualquier intervalo activo
+            clearInterval(intervalCorazones);
+            clearInterval(intervalLlorar);
+
             // Cambiar el fondo a la imagen del gato
             document.body.style.backgroundImage = "url('https://th.bing.com/th/id/R.4b64e209729e5e331d1c0bcff819ae37?rik=Z2aA1HY7x75ItA&riu=http%3a%2f%2fwww.mascotahogar.com%2f1280x1024%2ffondo-de-un-pequeno-gato-siames.jpg&ehk=lRcY4%2fHBcK8Sa2ub3JICSLF3bSNs%2bGXO0hSUHDgItGs%3d&risl=&pid=ImgRaw&r=0')";
             document.body.style.backgroundColor = "#ffb3d9"; // Fondo rosado
@@ -156,14 +163,20 @@
             document.getElementById("mensaje").style.display = "block";
 
             // Crear corazones flotantes, solo cuando se presiona SI
-            setInterval(() => { crearCorazon("💗"); }, 200);
-            setInterval(() => { crearCorazon("💖"); }, 300);
-            setInterval(() => { crearCorazon("❤️"); }, 400);
-            setInterval(() => { crearCorazon("💞"); }, 500);
+            intervalCorazones = setInterval(() => { 
+                crearCorazon("💗"); 
+                crearCorazon("💖");
+                crearCorazon("❤️");
+                crearCorazon("💞");
+            }, 200);
         }
 
         // Función para rechazar y cambiar a lluvia
         function rechazar() {
+            // Detener cualquier intervalo activo
+            clearInterval(intervalCorazones);
+            clearInterval(intervalLlorar);
+
             // Cambiar el fondo a la imagen de lluvia
             document.body.style.backgroundImage = "url('https://humanidades.com/wp-content/uploads/2018/10/lluvia-3-e1581819535291.jpg')";
             document.body.style.backgroundColor = "#4c4c4c"; // Fondo oscuro para combinar con la lluvia
@@ -176,7 +189,7 @@
             document.getElementById("mensaje").style.display = "block";
 
             // Crear el emoji de llorar flotante, solo cuando se presiona NO
-            setInterval(crearLlorar, 500); // El emoji de llorar flotará a intervalos
+            intervalLlorar = setInterval(crearLlorar, 500); // El emoji de llorar flotará a intervalos
         }
     </script>
 
