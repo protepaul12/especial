@@ -3,25 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosal para Mi Amor</title>
+    <title>Regalito Lessa</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Pantalla de inicio */
+        .pantalla-inicio {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #ffccd5;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .pantalla-inicio h1 {
+            font-size: 32px;
+            color: #d63384;
+        }
+
+        .boton-inicio {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-inicio:hover {
+            background-color: #d63384;
+        }
+
+        /* Contenido del rosal (oculto al inicio) */
+        .contenido {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            margin: 0;
             background-color: #ffe6e6;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            text-align: center;
         }
 
         .rosal {
             width: 200px;
             height: auto;
-            position: relative;
         }
 
         .mensaje {
@@ -53,17 +93,38 @@
 </head>
 <body>
 
-    <img class="rosal" src="https://cdn.pixabay.com/photo/2020/02/20/18/03/roses-4866393_1280.png" alt="Rosal">
-    <div class="mensaje">🌹✨Te lo mereces mi amorcito ✨🌹</div>
+    <!-- Pantalla de inicio -->
+    <div class="pantalla-inicio" id="pantallaInicio">
+        <h1>🎁 Regalito Lessa 🎁</h1>
+        <button class="boton-inicio" onclick="mostrarRosal()">Abrir Regalito 💝</button>
+    </div>
+
+    <!-- Contenido con el rosal -->
+    <div class="contenido" id="contenido">
+        <img class="rosal" src="https://cdn.pixabay.com/photo/2020/02/20/18/03/roses-4866393_1280.png" alt="Rosal">
+        <div class="mensaje">🌹✨Te lo mereces mi amorcito ✨🌹</div>
+    </div>
 
     <script>
+        function mostrarRosal() {
+            // Oculta la pantalla de inicio con un efecto de desvanecimiento
+            document.getElementById("pantallaInicio").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("pantallaInicio").style.display = "none";
+                document.getElementById("contenido").style.display = "flex";
+            }, 1000);
+
+            // Comienza la animación de los pétalos cayendo
+            setInterval(crearPetalo, 500);
+        }
+
         function crearPetalo() {
             const petalo = document.createElement("div");
             petalo.classList.add("petalo");
             petalo.innerHTML = "🌹";
-            petalo.style.left = Math.random() * window.innerWidth + "px"; // Posición aleatoria en pantalla
-            petalo.style.top = "-10px"; // Comienza desde arriba
-            petalo.style.animationDuration = (Math.random() * 3 + 2) + "s"; // Duración aleatoria para caída
+            petalo.style.left = Math.random() * window.innerWidth + "px"; 
+            petalo.style.top = "-10px"; 
+            petalo.style.animationDuration = (Math.random() * 3 + 2) + "s";
             document.body.appendChild(petalo);
 
             // Eliminar el pétalo después de que caiga
@@ -71,9 +132,6 @@
                 petalo.remove();
             }, 5000);
         }
-
-        // Crear pétalos de manera continua
-        setInterval(crearPetalo, 500);
     </script>
 
 </body>
