@@ -38,7 +38,7 @@
         @keyframes flotar {
             0% { transform: translateY(0); opacity: 1; }
             50% { transform: translateY(-50px); opacity: 0.5; }
-            100% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(-100vh); opacity: 0; }
         }
 
         @keyframes carta {
@@ -108,19 +108,20 @@
             const corazon = document.createElement("div");
             corazon.classList.add("corazon");
             corazon.innerHTML = "❤️";
-            corazon.style.left = Math.random() * window.innerWidth + "px";
-            corazon.style.top = window.innerHeight + "px";
+            corazon.style.left = Math.random() * window.innerWidth + "px"; // Se distribuyen en el ancho de la pantalla
+            corazon.style.top = window.innerHeight + "px"; // Empiezan desde el fondo
             document.body.appendChild(corazon);
 
+            // Elimina el corazón después de un tiempo
             setTimeout(() => {
                 corazon.remove();
             }, 4000);
         }
 
-        // Función para aceptar y cambiar a un fondo rosado con corazones
+        // Función para aceptar y cambiar a un fondo de gato
         function aceptar() {
-            // Cambiar el fondo a rosado con corazones y mostrar la imagen de las manos formando un corazón
-            document.body.style.backgroundImage = "url('https://static.vecteezy.com/system/resources/previews/021/096/145/original/person-hands-making-a-heart-shape-isolated-png.png')";
+            // Cambiar el fondo a la imagen del gato
+            document.body.style.backgroundImage = "url('https://th.bing.com/th/id/R.4b64e209729e5e331d1c0bcff819ae37?rik=Z2aA1HY7x75ItA&riu=http%3a%2f%2fwww.mascotahogar.com%2f1280x1024%2ffondo-de-un-pequeno-gato-siames.jpg&ehk=lRcY4%2fHBcK8Sa2ub3JICSLF3bSNs%2bGXO0hSUHDgItGs%3d&risl=&pid=ImgRaw&r=0')";
             document.body.style.backgroundColor = "#ffb3d9"; // Fondo rosado
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundPosition = "center";
@@ -130,8 +131,8 @@
             document.getElementById("mensaje").style.color = "#ff4b5c";
             document.getElementById("mensaje").style.display = "block";
 
-            // Crear corazones flotantes
-            setInterval(crearCorazon, 500);
+            // Crear más corazones flotantes
+            setInterval(crearCorazon, 200); // Se crean más corazones, cada 200ms
         }
 
         // Función para rechazar y cambiar a lluvia
