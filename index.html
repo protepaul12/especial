@@ -28,8 +28,7 @@
             margin-bottom: 20px;
         }
 
-        .corazon {
-            color: red;
+        .corazon, .llorar {
             font-size: 30px;
             position: absolute;
             animation: flotar 4s infinite ease-in-out;
@@ -103,11 +102,11 @@
     <div id="mensaje" class="mensaje"></div>
 
     <script>
-        // Función para crear corazones flotantes
+        // Función para crear los corazones flotantes cuando se acepta
         function crearCorazon() {
             const corazon = document.createElement("div");
             corazon.classList.add("corazon");
-            corazon.innerHTML = "❤️";
+            corazon.innerHTML = "💗💖❤️💞";
             corazon.style.left = Math.random() * window.innerWidth + "px"; // Se distribuyen en el ancho de la pantalla
             corazon.style.top = window.innerHeight + "px"; // Empiezan desde el fondo
             document.body.appendChild(corazon);
@@ -131,7 +130,7 @@
             document.getElementById("mensaje").style.color = "#ff4b5c";
             document.getElementById("mensaje").style.display = "block";
 
-            // Crear más corazones flotantes
+            // Crear corazones flotantes
             setInterval(crearCorazon, 200); // Se crean más corazones, cada 200ms
         }
 
@@ -143,8 +142,8 @@
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundPosition = "center";
 
-            // Mostrar el mensaje de rechazo con color negro
-            document.getElementById("mensaje").innerHTML = "UHHH :c";
+            // Mostrar el emoji de llorar
+            document.getElementById("mensaje").innerHTML = "😢";
             document.getElementById("mensaje").style.color = "black"; // Cambiar el color a negro
             document.getElementById("mensaje").style.display = "block";
         }
