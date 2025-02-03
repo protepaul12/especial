@@ -3,194 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi San Valentín?</title>
+    <title>Rosal para Mi Amor</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             height: 100vh;
-            font-family: Arial, sans-serif;
             margin: 0;
+            background-color: #ffe6e6;
             overflow: hidden;
-            transition: background-color 0.5s, background-image 1s;
-        }
-
-        .container {
+            font-family: Arial, sans-serif;
             text-align: center;
-            animation: carta 2s ease-in-out;
         }
 
-        h1 {
-            color: #ff4b5c;
-            font-size: 30px;
-            margin-bottom: 20px;
-        }
-
-        .corazon, .llorar {
-            font-size: 30px;
-            position: absolute;
-            animation: flotar 4s infinite ease-in-out;
-        }
-
-        .llorar {
-            animation: llorar 6s infinite ease-in-out;
-        }
-
-        @keyframes flotar {
-            0% { transform: translateY(0); opacity: 1; }
-            50% { transform: translateY(-50px); opacity: 0.5; }
-            100% { transform: translateY(-100vh); opacity: 0; }
-        }
-
-        @keyframes llorar {
-            0% { transform: translateY(0); opacity: 1; }
-            50% { transform: translateY(-70px); opacity: 0.5; }
-            100% { transform: translateY(-120vh); opacity: 0; }
-        }
-
-        @keyframes carta {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .botones {
-            margin-top: 20px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .si {
-            background-color: #ff4b5c;
-            color: white;
-        }
-
-        .si:hover {
-            background-color: #ff1e2e;
-        }
-
-        .no {
-            background-color: #e60000;
-            color: white;
-        }
-
-        .no:hover {
-            background-color: #b50000;
+        .rosal {
+            width: 200px;
+            height: auto;
+            position: relative;
         }
 
         .mensaje {
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translateX(-50%);
             font-size: 24px;
             font-weight: bold;
-            display: none;
+            color: #d63384;
+            margin-top: 20px;
         }
 
+        /* Pétalos animados */
+        .petalo {
+            position: absolute;
+            font-size: 30px;
+            color: #ff4d6d;
+            animation: caer 5s linear infinite;
+        }
+
+        @keyframes caer {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>💖 ¿Quieres ser mi San Valentín? 💖</h1>
-        <div class="botones">
-            <button class="si" onclick="aceptar()">SI 😫💗</button>
-            <button class="no" onclick="rechazar()">NOO QUE ASCOO NUV 🤮</button>
-        </div>
-    </div>
-
-    <div id="mensaje" class="mensaje"></div>
+    <img class="rosal" src="https://cdn.pixabay.com/photo/2020/02/20/18/03/roses-4866393_1280.png" alt="Rosal">
+    <div class="mensaje">🌹✨Te lo mereces mi amorcito ✨🌹</div>
 
     <script>
-        let intervalCorazones;
-        let intervalLlorar;
+        function crearPetalo() {
+            const petalo = document.createElement("div");
+            petalo.classList.add("petalo");
+            petalo.innerHTML = "🌹";
+            petalo.style.left = Math.random() * window.innerWidth + "px"; // Posición aleatoria en pantalla
+            petalo.style.top = "-10px"; // Comienza desde arriba
+            petalo.style.animationDuration = (Math.random() * 3 + 2) + "s"; // Duración aleatoria para caída
+            document.body.appendChild(petalo);
 
-        // Función para crear los corazones flotantes cuando se acepta
-        function crearCorazon(emoji) {
-            const corazon = document.createElement("div");
-            corazon.classList.add("corazon");
-            corazon.innerHTML = emoji;
-            corazon.style.left = Math.random() * window.innerWidth + "px"; // Se distribuyen en el ancho de la pantalla
-            corazon.style.top = window.innerHeight + "px"; // Empiezan desde el fondo
-            document.body.appendChild(corazon);
-
-            // Elimina el corazón después de un tiempo
+            // Eliminar el pétalo después de que caiga
             setTimeout(() => {
-                corazon.remove();
-            }, 4000);
+                petalo.remove();
+            }, 5000);
         }
 
-        // Función para crear los emojis de llorar flotantes cuando se rechaza
-        function crearLlorar() {
-            const llorar = document.createElement("div");
-            llorar.classList.add("llorar");
-            llorar.innerHTML = "😢";
-            llorar.style.left = Math.random() * window.innerWidth + "px"; // Se distribuyen en el ancho de la pantalla
-            llorar.style.top = window.innerHeight + "px"; // Empiezan desde el fondo
-            document.body.appendChild(llorar);
-
-            // Elimina el emoji de llorar después de un tiempo
-            setTimeout(() => {
-                llorar.remove();
-            }, 6000);
-        }
-
-        // Función para aceptar y cambiar a un fondo de gato
-        function aceptar() {
-            // Detener cualquier intervalo activo
-            clearInterval(intervalCorazones);
-            clearInterval(intervalLlorar);
-
-            // Cambiar el fondo a la imagen del gato
-            document.body.style.backgroundImage = "url('https://th.bing.com/th/id/R.4b64e209729e5e331d1c0bcff819ae37?rik=Z2aA1HY7x75ItA&riu=http%3a%2f%2fwww.mascotahogar.com%2f1280x1024%2ffondo-de-un-pequeno-gato-siames.jpg&ehk=lRcY4%2fHBcK8Sa2ub3JICSLF3bSNs%2bGXO0hSUHDgItGs%3d&risl=&pid=ImgRaw&r=0')";
-            document.body.style.backgroundColor = "#ffb3d9"; // Fondo rosado
-            document.body.style.backgroundSize = "cover";
-            document.body.style.backgroundPosition = "center";
-
-            // Mostrar el mensaje de aceptación
-            document.getElementById("mensaje").innerHTML = "TEAMOO MUCHO MI VIDA";
-            document.getElementById("mensaje").style.color = "#ff4b5c";
-            document.getElementById("mensaje").style.display = "block";
-
-            // Crear corazones flotantes, solo cuando se presiona SI
-            intervalCorazones = setInterval(() => { 
-                crearCorazon("💗"); 
-                crearCorazon("💖");
-                crearCorazon("❤️");
-                crearCorazon("💞");
-            }, 200);
-        }
-
-        // Función para rechazar y cambiar a lluvia
-        function rechazar() {
-            // Detener cualquier intervalo activo
-            clearInterval(intervalCorazones);
-            clearInterval(intervalLlorar);
-
-            // Cambiar el fondo a la imagen de lluvia
-            document.body.style.backgroundImage = "url('https://humanidades.com/wp-content/uploads/2018/10/lluvia-3-e1581819535291.jpg')";
-            document.body.style.backgroundColor = "#4c4c4c"; // Fondo oscuro para combinar con la lluvia
-            document.body.style.backgroundSize = "cover";
-            document.body.style.backgroundPosition = "center";
-
-            // Mostrar el mensaje de rechazo
-            document.getElementById("mensaje").innerHTML = "No me amas... ya lo sabía 😿";
-            document.getElementById("mensaje").style.color = "black"; // Cambiar el color a negro
-            document.getElementById("mensaje").style.display = "block";
-
-            // Crear el emoji de llorar flotante, solo cuando se presiona NO
-            intervalLlorar = setInterval(crearLlorar, 500); // El emoji de llorar flotará a intervalos
-        }
+        // Crear pétalos de manera continua
+        setInterval(crearPetalo, 500);
     </script>
 
 </body>
