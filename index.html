@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             overflow: hidden;
+            background-color: #ffe6e6;
         }
 
         /* Pantalla de inicio */
@@ -49,26 +50,32 @@
             background-color: #d63384;
         }
 
-        /* Contenido del rosal (oculto al inicio) */
+        /* Contenido con rosas */
         .contenido {
             display: none;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #ffe6e6;
         }
 
-        .rosal {
+        .rosas-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .rosa {
             width: 200px;
             height: auto;
+            border-radius: 10px;
         }
 
         .mensaje {
             font-size: 24px;
             font-weight: bold;
             color: #d63384;
-            margin-top: 20px;
         }
 
         /* Pétalos animados */
@@ -99,9 +106,13 @@
         <button class="boton-inicio" onclick="mostrarRosal()">Abrir Regalito 💝</button>
     </div>
 
-    <!-- Contenido con el rosal -->
+    <!-- Contenido con las rosas -->
     <div class="contenido" id="contenido">
-        <img class="rosal" src="https://cdn.pixabay.com/photo/2020/02/20/18/03/roses-4866393_1280.png" alt="Rosal">
+        <div class="rosas-container">
+            <img class="rosa" src="https://i.pinimg.com/736x/90/1a/d7/901ad7aa54f50bc7e8f21e69ba38c35e.jpg" alt="Rosa 1">
+            <img class="rosa" src="https://i.pinimg.com/736x/e1/36/b7/e136b7474cfdc545f09c62123d6be82f.jpg" alt="Rosa 2">
+            <img class="rosa" src="https://i.pinimg.com/736x/ab/8f/62/ab8f624074a94c1766da3bd7c16a6c2c.jpg" alt="Rosa 3">
+        </div>
         <div class="mensaje">🌹✨Te lo mereces mi amorcito ✨🌹</div>
     </div>
 
