@@ -117,11 +117,13 @@
             }, 4000);
         }
 
-        // Función para aceptar y cambiar a un campo bonito
+        // Función para aceptar y cambiar a un fondo rosado con corazones
         function aceptar() {
-            // Cambiar el fondo a un campo bonito y flores
-            document.body.style.backgroundImage = "url('https://www.example.com/beautiful-field.jpg')";
-            document.body.style.backgroundColor = "#c5e8e7"; // Color de campo hermoso
+            // Cambiar el fondo a rosado con corazones y mostrar la imagen de las manos formando un corazón
+            document.body.style.backgroundImage = "url('https://static.vecteezy.com/system/resources/previews/021/096/145/original/person-hands-making-a-heart-shape-isolated-png.png')";
+            document.body.style.backgroundColor = "#ffb3d9"; // Fondo rosado
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
 
             // Mostrar el mensaje de aceptación
             document.getElementById("mensaje").innerHTML = "TEAMOO MUCHO MI VIDA";
@@ -132,11 +134,13 @@
             setInterval(crearCorazon, 500);
         }
 
-        // Función para rechazar y cambiar a infierno
+        // Función para rechazar y cambiar a lluvia
         function rechazar() {
-            // Cambiar el fondo a un infierno (puedes cambiar la imagen aquí)
-            document.body.style.backgroundImage = "url('https://www.example.com/hell-background.jpg')";
-            document.body.style.backgroundColor = "#6f2b2b"; // Fondo oscuro y siniestro
+            // Cambiar el fondo a la imagen de lluvia
+            document.body.style.backgroundImage = "url('https://humanidades.com/wp-content/uploads/2018/10/lluvia-3-e1581819535291.jpg')";
+            document.body.style.backgroundColor = "#4c4c4c"; // Fondo oscuro para combinar con la lluvia
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
 
             // Mostrar el mensaje de rechazo
             document.getElementById("mensaje").innerHTML = "UHHH :c";
