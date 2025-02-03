@@ -155,7 +155,7 @@
             document.getElementById("mensaje").style.color = "#ff4b5c";
             document.getElementById("mensaje").style.display = "block";
 
-            // Crear corazones flotantes
+            // Crear corazones flotantes, solo cuando se presiona SI
             setInterval(() => { crearCorazon("💗"); }, 200);
             setInterval(() => { crearCorazon("💖"); }, 300);
             setInterval(() => { crearCorazon("❤️"); }, 400);
@@ -175,7 +175,7 @@
             document.getElementById("mensaje").style.color = "black"; // Cambiar el color a negro
             document.getElementById("mensaje").style.display = "block";
 
-            // Crear el emoji de llorar flotante
+            // Crear el emoji de llorar flotante, solo cuando se presiona NO
             setInterval(crearLlorar, 500); // El emoji de llorar flotará a intervalos
         }
     </script>
