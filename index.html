@@ -43,16 +43,28 @@
         button {
             padding: 10px 20px;
             font-size: 18px;
-            background-color: #ff4b5c;
-            color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             margin-top: 20px;
         }
 
-        button:hover {
+        .si {
+            background-color: #ff4b5c;
+            color: white;
+        }
+
+        .si:hover {
             background-color: #ff1e2e;
+        }
+
+        .no {
+            background-color: #e60000;
+            color: white;
+        }
+
+        .no:hover {
+            background-color: #b50000;
         }
 
         .mensaje {
@@ -61,7 +73,6 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 24px;
-            color: #ff4b5c;
             font-weight: bold;
             display: none;
         }
@@ -72,8 +83,8 @@
 
     <div class="container">
         <h1>💖 ¿Quieres ser mi San Valentín? 💖</h1>
-        <button onclick="aceptar()">SI 😫💗</button>
-        <button onclick="rechazar()">NOO QUE ASCOO NUV 🤮</button>
+        <button class="si" onclick="aceptar()">SI 😫💗</button>
+        <button class="no" onclick="rechazar()">NOO QUE ASCOO NUV 🤮</button>
     </div>
 
     <div id="mensaje" class="mensaje"></div>
@@ -93,7 +104,7 @@
             }, 4000);
         }
 
-        // Función para cambiar el fondo y mostrar el mensaje de aceptación
+        // Función para aceptar y cambiar el fondo a romántico
         function aceptar() {
             // Cambiar el fondo a algo bonito y romántico
             document.body.style.backgroundImage = "url('https://www.example.com/romantic-background.jpg')";
@@ -108,7 +119,7 @@
             setInterval(crearCorazon, 500);
         }
 
-        // Función para cambiar el fondo y mostrar el mensaje de rechazo
+        // Función para rechazar y cambiar el fondo a triste
         function rechazar() {
             // Cambiar el fondo a algo triste y gris
             document.body.style.backgroundImage = "url('https://www.example.com/sad-background.jpg')";
