@@ -21,7 +21,9 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: #ffccd5;
+            background-image: url('https://postimg.cc/SXTvxs8w'); /* Cambié la URL de la imagen */
+            background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -84,13 +86,12 @@
             border-radius: 10px;
         }
 
-        /* Rosas animadas más grandes y en mayor cantidad */
+        /* Pétalos animados */
         .petalo {
             position: absolute;
-            font-size: 50px; /* Ahora más grandes */
+            font-size: 30px;
             color: #ff4d6d;
-            animation: caer 6s linear infinite;
-            opacity: 0.8;
+            animation: caer 5s linear infinite;
         }
 
         @keyframes caer {
@@ -132,8 +133,8 @@
                 document.getElementById("contenido").style.display = "block";
             }, 1000);
 
-            // Comienza la animación de los pétalos cayendo con más rosas
-            setInterval(crearPetalo, 300);
+            // Comienza la animación de los pétalos cayendo
+            setInterval(crearPetalo, 500);
         }
 
         function crearPetalo() {
@@ -142,13 +143,13 @@
             petalo.innerHTML = "🌹";
             petalo.style.left = Math.random() * window.innerWidth + "px"; 
             petalo.style.top = "-10px"; 
-            petalo.style.animationDuration = (Math.random() * 4 + 3) + "s"; // Duración aleatoria
+            petalo.style.animationDuration = (Math.random() * 3 + 2) + "s";
             document.body.appendChild(petalo);
 
             // Eliminar el pétalo después de que caiga
             setTimeout(() => {
                 petalo.remove();
-            }, 6000);
+            }, 5000);
         }
     </script>
 
