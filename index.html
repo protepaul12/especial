@@ -50,40 +50,47 @@
             background-color: #d63384;
         }
 
-        /* Contenido con rosas */
+        /* Contenido con rosas que ocupan toda la pantalla */
         .contenido {
             display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            width: 100%;
             height: 100vh;
+            position: relative;
         }
 
         .rosas-container {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
+            width: 100%;
+            height: 100vh;
         }
 
         .rosa {
-            width: 200px;
-            height: auto;
-            border-radius: 10px;
+            flex: 1;
+            object-fit: cover;
+            height: 100vh;
+            width: 100%;
         }
 
         .mensaje {
-            font-size: 24px;
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
             font-weight: bold;
-            color: #d63384;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
         }
 
-        /* Pétalos animados */
+        /* Rosas animadas más grandes y en mayor cantidad */
         .petalo {
             position: absolute;
-            font-size: 30px;
+            font-size: 50px; /* Ahora más grandes */
             color: #ff4d6d;
-            animation: caer 5s linear infinite;
+            animation: caer 6s linear infinite;
+            opacity: 0.8;
         }
 
         @keyframes caer {
@@ -106,7 +113,7 @@
         <button class="boton-inicio" onclick="mostrarRosal()">Abrir Regalito 💝</button>
     </div>
 
-    <!-- Contenido con las rosas -->
+    <!-- Contenido con las rosas en pantalla completa -->
     <div class="contenido" id="contenido">
         <div class="rosas-container">
             <img class="rosa" src="https://i.pinimg.com/736x/90/1a/d7/901ad7aa54f50bc7e8f21e69ba38c35e.jpg" alt="Rosa 1">
@@ -122,11 +129,11 @@
             document.getElementById("pantallaInicio").style.opacity = "0";
             setTimeout(() => {
                 document.getElementById("pantallaInicio").style.display = "none";
-                document.getElementById("contenido").style.display = "flex";
+                document.getElementById("contenido").style.display = "block";
             }, 1000);
 
-            // Comienza la animación de los pétalos cayendo
-            setInterval(crearPetalo, 500);
+            // Comienza la animación de los pétalos cayendo con más rosas
+            setInterval(crearPetalo, 300);
         }
 
         function crearPetalo() {
@@ -135,13 +142,13 @@
             petalo.innerHTML = "🌹";
             petalo.style.left = Math.random() * window.innerWidth + "px"; 
             petalo.style.top = "-10px"; 
-            petalo.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            petalo.style.animationDuration = (Math.random() * 4 + 3) + "s"; // Duración aleatoria
             document.body.appendChild(petalo);
 
             // Eliminar el pétalo después de que caiga
             setTimeout(() => {
                 petalo.remove();
-            }, 5000);
+            }, 6000);
         }
     </script>
 
