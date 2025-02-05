@@ -15,7 +15,6 @@
             background: url('https://i.pinimg.com/736x/fb/3d/2a/fb3d2a1e78cb9903cc7340065abcd71e.jpg') no-repeat center center fixed;
             background-size: cover;
         }
-        /* Contenedor del mensaje y botón */
         .contenedor {
             position: absolute;
             top: 50%;
@@ -37,6 +36,8 @@
             max-width: 80%;
             box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
         .boton {
             background-color: #ff1493;
@@ -48,24 +49,91 @@
             border-radius: 15px;
             margin-top: 20px;
             transition: 0.3s;
+            position: relative;
+            z-index: 2;
         }
         .boton:hover {
             background-color: white;
             color: black;
         }
+        .corazon {
+            position: absolute;
+            font-size: 70px;
+            opacity: 1;
+            animation: explotar 4s ease-out forwards, respirar 2s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        @keyframes explotar {
+            0% {
+                transform: scale(0.5) translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3) translate(var(--x), var(--y));
+                opacity: 0;
+            }
+        }
+
+        @keyframes respirar {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Contenedor del mensaje y botón -->
     <div class="contenedor" id="inicio">
         <div class="mensaje">
             <p>Eres mi luz, mi paz y mi mayor felicidad. En tu sonrisa encuentro el sentido de mis días y en tu abrazo, mi hogar. Contigo, todo es más hermoso, más brillante y más especial. Te amo con cada latido y cada pensamiento. Siempre serás mi persona favorita.<br><br>
             Tuyo por siempre. 💖</p>
         </div>
-        <!-- Botón que redirige al video de YouTube -->
-        <a href="https://youtu.be/_oELcBpH1gg?si=tU4TwxzBWtyRcpMJ" target="_blank">
-            <button class="boton">Haz click aquí 💜</button>
-        </a>
+        <button class="boton" onclick="explosionCorazones()">Haz click aquí 💜</button>
     </div>
+    <audio id="sonido" src="https://www.fesliyanstudios.com/play-mp3/4381"></audio>
+    <script>
+        function explosionCorazones() {
+            document.getElementById("sonido").play();
+            let boton = document.querySelector('.boton');
+            let mensaje = document.querySelector('.mensaje');
+            let mensajeRect = mensaje.getBoundingClientRect();
+
+            const emoticonos = ["💞", "💖"];
+
+            for (let i = 0; i < 30; i++) {
+                let corazon = document.createElement("div");
+                corazon.classList.add("corazon");
+                corazon.innerText = emoticonos[Math.floor(Math.random() * emoticonos.length)];
+                document.body.appendChild(corazon);
+
+                let xPos = Math.random() * window.innerWidth;
+                let yPos = Math.random() * window.innerHeight;
+
+                corazon.style.left = `${xPos}px`;
+                corazon.style.top = `${yPos}px`;
+
+                let angulo = Math.random() * 2 * Math.PI;
+                let radio = Math.random() * 400 + 200;
+                let x = Math.cos(angulo) * radio;
+                let y = Math.sin(angulo) * radio;
+
+                corazon.style.setProperty('--x', `${x * 3}px`);
+                corazon.style.setProperty('--y', `${y * 3}px`);
+
+                setTimeout(() => corazon.remove(), 4000);
+            }
+
+            setTimeout(() => {
+                window.open("https://youtu.be/_oELcBpH1gg?si=tU4TwxzBWtyRcpMJ", "_blank");
+            }, 4000);
+        }
+    </script>
 </body>
 </html>
