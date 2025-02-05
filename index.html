@@ -11,7 +11,7 @@
             font-family: 'Great Vibes', cursive;
             text-align: center;
             overflow: hidden;
-            background-color: #1e1e1e;
+            background-color: #121212; /* Fondo más oscuro */
         }
 
         /* Animación épica de entrada */
@@ -21,7 +21,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: #1e1e1e;
+            background-color: #121212; /* Fondo oscuro */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -36,9 +36,9 @@
 
         .mensaje-poema {
             font-size: 24px;
-            color: white;
+            color: #f1f1f1; /* Texto blanco para contraste */
             font-family: 'Great Vibes', cursive;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
             border-radius: 15px;
             padding: 20px 30px;
             text-align: center;
@@ -53,9 +53,9 @@
         }
 
         .boton-inicio {
-            background-color: #1e1e1e;
+            background-color: #1e1e1e; /* Fondo oscuro para el botón */
             color: white;
-            border: 2px solid white;
+            border: 2px solid #f1f1f1; /* Bordes claros para destacar */
             padding: 15px 30px;
             font-size: 20px;
             cursor: pointer;
@@ -72,11 +72,11 @@
         }
 
         .boton-inicio:hover {
-            background-color: white;
-            color: #1e1e1e;
+            background-color: #f1f1f1; /* Color de fondo blanco al hacer hover */
+            color: #121212; /* Texto en negro al hacer hover */
         }
 
-        /* Portal Animado */
+        /* Portal Animado con Estallido morado y rosado */
         .portal {
             position: fixed;
             top: 50%;
@@ -85,13 +85,13 @@
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, rgba(255,0,150,0.5) 60%, rgba(0,0,0,0) 100%);
-            box-shadow: 0 0 50px rgba(255,0,150,0.8);
-            animation: abrirPortal 1.5s forwards;
+            background: radial-gradient(circle, rgba(255,0,255,0.3) 10%, rgba(255,20,147,0.7) 60%, rgba(0,0,0,0) 100%);
+            box-shadow: 0 0 80px rgba(255,20,147,0.8), 0 0 100px rgba(255,0,255,0.8);
+            animation: abrirEstallido 1.5s forwards;
             display: none;
         }
 
-        @keyframes abrirPortal {
+        @keyframes abrirEstallido {
             0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
             100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
         }
@@ -103,7 +103,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.7); /* Fondo oscuro para el video */
             justify-content: center;
             align-items: center;
         }
@@ -158,7 +158,7 @@
             document.getElementById("pantallaInicio").style.opacity = "0";
             document.getElementById("portal").style.display = "block";
             setTimeout(() => {
-                document.getElementById("portal").style.animation = "abrirPortal 1.5s forwards";
+                document.getElementById("portal").style.animation = "abrirEstallido 1.5s forwards";
             }, 500);
             setTimeout(() => {
                 document.getElementById("pantallaInicio").style.display = "none";
