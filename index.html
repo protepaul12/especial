@@ -11,47 +11,39 @@
             font-family: Arial, sans-serif;
             text-align: center;
             overflow: hidden;
-            background-color: #1e1e1e; /* Fondo oscuro */
+            background-color: #1e1e1e;
         }
 
-        /* Pantalla de inicio */
+        /* Animación épica de entrada */
         .pantalla-inicio {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: #1e1e1e; /* Fondo oscuro */
+            background-color: #1e1e1e;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: opacity 1s ease-in-out;
-            opacity: 0;
-            animation: aparecerPantalla 2s forwards; /* Animación de aparición de la pantalla de inicio */
+            animation: fadeIn 2s ease-in-out;
         }
 
-        .pantalla-inicio h1 {
-            font-size: 40px;
-            color: white;
-            font-family: 'Georgia', serif;
-            margin-bottom: 20px;
-            animation: deslizarIzquierda 1s ease-out;
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         .mensaje-poema {
             font-size: 24px;
             color: white;
             font-family: 'Dancing Script', cursive;
-            margin: 20px 0;
-            padding: 20px 30px;
             background-color: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
+            padding: 20px 30px;
             text-align: center;
-            line-height: 1.6;
             max-width: 80%;
             margin-bottom: 30px;
-            animation: deslizarArriba 1.5s ease-out 1s;
         }
 
         .boton-inicio {
@@ -62,14 +54,9 @@
             font-size: 20px;
             cursor: pointer;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: -20px; /* Subir un poco el botón */
             transition: background-color 0.3s ease;
-            opacity: 0;
-            position: absolute;
-            top: 20%; /* Ajustado para subir más el botón */
-            left: 50%;
-            transform: translateX(-50%);
-            animation: aparecerBoton 2s forwards 1.5s;
+            animation: aparecer 1s forwards;
         }
 
         .boton-inicio:hover {
@@ -77,47 +64,11 @@
             color: #1e1e1e;
         }
 
-        /* Animaciones */
-        @keyframes aparecerPantalla {
+        @keyframes aparecer {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
 
-        @keyframes deslizarIzquierda {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
-
-        @keyframes deslizarArriba {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(0); }
-        }
-
-        @keyframes aparecerBoton {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* Pétalos animados */
-        .petalo {
-            position: absolute;
-            font-size: 30px;
-            color: #ff4d6d;
-            animation: caer 5s linear infinite;
-        }
-
-        @keyframes caer {
-            0% {
-                transform: translateY(-10vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Estilo para el video de YouTube */
         #videoContainer {
             display: none;
             position: fixed;
@@ -140,32 +91,28 @@
     </style>
 </head>
 <body>
-
-    <!-- Pantalla de inicio -->
     <div class="pantalla-inicio" id="pantallaInicio">
         <img src="https://postimg.cc/SXTvxs8w" alt="Imagen principal" style="width: 100%; height: 100%; object-fit: cover;">
         <button class="boton-inicio" onclick="mostrarVideo()">Click acá amor 💝</button>
         <div class="mensaje-poema">
-            <p>Amor mío, hoy te traigo un regalo,  
-               con cariño y todo mi ser.  
-               Un regalo que expresa lo que siento,  
-               por ti, mi amor, te quiero ver.  
-               El 14 de febrero, el día del amor,  
-               es solo un recordatorio de mi devoción.  
-               Eres mi razón, mi sol, mi calor,  
-               en mi corazón, eres mi canción.  
+            <p>Amor mío, hoy te traigo un regalo,<br>
+               con cariño y todo mi ser.<br>
+               Un regalo que expresa lo que siento,<br>
+               por ti, mi amor, te quiero ver.<br>
+               El 14 de febrero, el día del amor,<br>
+               es solo un recordatorio de mi devoción.<br>
+               Eres mi razón, mi sol, mi calor,<br>
+               en mi corazón, eres mi canción.<br>
             </p>
         </div>
     </div>
 
-    <!-- Contenido con el video -->
     <div id="videoContainer">
-        <iframe id="videoFrame" src="https://www.youtube.com/embed/3mPXwuPc650?autoplay=1" allow="fullscreen"></iframe>
+        <iframe id="videoFrame" src="https://www.youtube.com/embed/_oELcBpH1gg?autoplay=1" allow="fullscreen"></iframe>
     </div>
 
     <script>
         function mostrarVideo() {
-            // Oculta la pantalla de inicio con un efecto de desvanecimiento
             document.getElementById("pantallaInicio").style.opacity = "0";
             setTimeout(() => {
                 document.getElementById("pantallaInicio").style.display = "none";
@@ -173,6 +120,5 @@
             }, 1000);
         }
     </script>
-
 </body>
 </html>
