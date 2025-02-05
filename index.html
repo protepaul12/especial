@@ -2,13 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=", initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regalito Lessa</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Great Vibes', cursive;
             text-align: center;
             overflow: hidden;
             background-color: #1e1e1e;
@@ -37,13 +37,19 @@
         .mensaje-poema {
             font-size: 24px;
             color: white;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Great Vibes', cursive;
             background-color: rgba(0, 0, 0, 0.8);
             border-radius: 15px;
             padding: 20px 30px;
             text-align: center;
             max-width: 80%;
             margin-bottom: 30px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
         }
 
         .boton-inicio {
@@ -56,17 +62,18 @@
             border-radius: 10px;
             margin-top: -20px;
             transition: background-color 0.3s ease;
-            animation: aparecer 1s forwards;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .boton-inicio:hover {
             background-color: white;
             color: #1e1e1e;
-        }
-
-        @keyframes aparecer {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
         /* Portal Animado */
@@ -107,7 +114,22 @@
             border: none;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+        /* Efecto de Partículas flotando */
+        @keyframes floatingParticles {
+            0% { transform: translateY(0); opacity: 0; }
+            100% { transform: translateY(-10px); opacity: 1; }
+        }
+
+        .particles {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: floatingParticles 3s infinite alternate;
+        }
+
+        /* Fuente personalizada */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
     </style>
 </head>
 <body>
