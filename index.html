@@ -76,24 +76,23 @@
             color: #121212; /* Texto en negro al hacer hover */
         }
 
-        /* Portal Animado con Estallido morado y rosado */
+        /* Portal Animado con Estallido morado y rosado que cubre toda la pantalla */
         .portal {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100vw; /* Ancho de toda la pantalla */
+            height: 100vh; /* Alto de toda la pantalla */
             background: radial-gradient(circle, rgba(255,0,255,0.3) 10%, rgba(255,20,147,0.7) 60%, rgba(0,0,0,0) 100%);
             box-shadow: 0 0 80px rgba(255,20,147,0.8), 0 0 100px rgba(255,0,255,0.8);
             animation: abrirEstallido 1.5s forwards;
             display: none;
+            z-index: 999; /* Asegura que el portal quede sobre otros elementos */
         }
 
         @keyframes abrirEstallido {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         #videoContainer {
