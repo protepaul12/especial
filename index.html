@@ -3,125 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regalito Lessa</title>
+    <title>Para mi amor</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Great Vibes', cursive;
+            font-family: 'Dancing Script', cursive;
             text-align: center;
+            color: white;
             overflow: hidden;
-            background-color: #121212; /* Fondo más oscuro */
         }
-
-        /* Animación épica de entrada */
-        .pantalla-inicio {
+        /* Estilos para el video de fondo */
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 100vw;
             height: 100vh;
-            background-color: #121212; /* Fondo oscuro */
+            z-index: -1; /* Coloca el video por detrás del contenido */
+        }
+        /* Contenedor del mensaje y el botón */
+        .contenedor {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             animation: fadeIn 2s ease-in-out;
         }
-
         @keyframes fadeIn {
-            0% { opacity: 0; transform: scale(0.8); }
+            0% { opacity: 0; transform: scale(0.9); }
             100% { opacity: 1; transform: scale(1); }
         }
-
-        .mensaje-poema {
+        .mensaje {
             font-size: 24px;
-            color: #f1f1f1; /* Texto blanco para contraste */
-            font-family: 'Great Vibes', cursive;
-            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con opacidad */
-            border-radius: 15px;
-            padding: 20px 30px;
-            text-align: center;
+            background-color: rgba(138, 43, 226, 0.9); /* Morado con más opacidad */
+            padding: 25px;
+            border-radius: 20px;
             max-width: 80%;
-            margin-bottom: 30px;
-            animation: slideIn 1.5s ease-out;
+            box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
         }
-
-        @keyframes slideIn {
-            0% { transform: translateX(-100%); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
-        }
-
-        .boton-inicio {
-            background-color: #1e1e1e; /* Fondo oscuro para el botón */
+        .boton {
+            background-color: #ff1493;
+            border: 2px solid white;
             color: white;
-            border: 2px solid #f1f1f1; /* Bordes claros para destacar */
             padding: 15px 30px;
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
-            border-radius: 10px;
-            margin-top: -20px;
-            transition: background-color 0.3s ease;
-            animation: heartbeat 1s infinite;
+            border-radius: 15px;
+            margin-top: 20px;
+            transition: 0.3s;
         }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        .boton:hover {
+            background-color: white;
+            color: black;
         }
-
-        .boton-inicio:hover {
-            background-color: #f1f1f1; /* Color de fondo blanco al hacer hover */
-            color: #121212; /* Texto en negro al hacer hover */
-        }
-
-        /* Portal Animado con Estallido morado y rosado que cubre toda la pantalla */
-        .portal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw; /* Ancho de toda la pantalla */
-            height: 100vh; /* Alto de toda la pantalla */
-            background: radial-gradient(circle, rgba(255,0,255,0.3) 10%, rgba(255,20,147,0.7) 60%, rgba(0,0,0,0) 100%);
-            box-shadow: 0 0 80px rgba(255,20,147,0.8), 0 0 100px rgba(255,0,255,0.8);
-            animation: abrirEstallido 1.5s forwards;
-            display: none;
-            z-index: 998; /* Asegura que el portal esté detrás del video */
-        }
-
-        @keyframes abrirEstallido {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        #videoContainer {
+        .video-container {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7); /* Fondo oscuro para el video */
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
             justify-content: center;
             align-items: center;
-            z-index: 999; /* Asegura que el video esté encima del portal */
         }
-
-        #videoContainer iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .video-container iframe {
+            width: 85%;
+            height: 85%;
+            border-radius: 20px;
         }
-
-        /* Fuente personalizada */
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
     </style>
 </head>
 <body>
-    <div class="pantalla-inicio" id="pantallaInicio">
-        <button class="boton-inicio" onclick="activarPortal()">Click acá amor 💝</button>
-        <div class="mensaje-poema">
+    <!-- Video de fondo -->
+    <div class="video-background">
+        <iframe src="https://www.youtube.com/embed/w3kEsS-sTjg?autoplay=1&loop=1&playlist=w3kEsS-sTjg" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <!-- Contenedor del mensaje y botón -->
+    <div class="contenedor" id="inicio">
+        <div class="mensaje">
             <p>Amor mío, hoy te traigo un regalo,<br>
                con cariño y todo mi ser.<br>
                Un regalo que expresa lo que siento,<br>
@@ -132,24 +97,18 @@
                en mi corazón, eres mi canción.<br>
             </p>
         </div>
+        <button class="boton" onclick="mostrarVideo()">Haz click aquí 💜</button>
     </div>
 
-    <div class="portal" id="portal"></div>
-    <div id="videoContainer">
-        <iframe id="videoFrame" src="https://www.youtube.com/embed/_oELcBpH1gg?autoplay=1" allow="fullscreen"></iframe>
+    <!-- Video adicional al hacer clic -->
+    <div class="video-container" id="videoContainer">
+        <iframe src="https://www.youtube.com/embed/w3kEsS-sTjg?autoplay=1" allow="fullscreen"></iframe>
     </div>
 
     <script>
-        function activarPortal() {
-            document.getElementById("pantallaInicio").style.opacity = "0";
-            document.getElementById("portal").style.display = "block";
-            setTimeout(() => {
-                document.getElementById("portal").style.animation = "abrirEstallido 1.5s forwards";
-            }, 500);
-            setTimeout(() => {
-                document.getElementById("pantallaInicio").style.display = "none";
-                document.getElementById("videoContainer").style.display = "flex";
-            }, 2000);
+        function mostrarVideo() {
+            document.getElementById("inicio").style.display = "none";
+            document.getElementById("videoContainer").style.display = "flex";
         }
     </script>
 </body>
