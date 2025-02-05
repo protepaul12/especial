@@ -12,21 +12,8 @@
             text-align: center;
             color: white;
             overflow: hidden;
-        }
-        /* Estilos del video de fondo */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Coloca el video en el fondo */
-        }
-        .video-background iframe {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Hace que el video cubra todo el fondo sin deformarse */
-            border: none;
+            background: url('https://i.pinimg.com/736x/fb/3d/2a/fb3d2a1e78cb9903cc7340065abcd71e.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
         /* Contenedor del mensaje y botón */
         .contenedor {
@@ -37,15 +24,19 @@
             width: 100%;
             max-width: 600px;
             text-align: center;
-            z-index: 1; /* Coloca el contenido sobre el video */
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .mensaje {
             font-size: 24px;
-            background-color: rgba(138, 43, 226, 0.9); /* Morado con más opacidad */
+            background-color: rgba(138, 43, 226, 0.9);
             padding: 25px;
             border-radius: 20px;
             max-width: 80%;
             box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+            text-align: center;
         }
         .boton {
             background-color: #ff1493;
@@ -65,11 +56,6 @@
     </style>
 </head>
 <body>
-    <!-- Video de fondo que no redirige, se reproduce en la página -->
-    <div class="video-background">
-        <iframe src="https://www.youtube.com/embed/A2cu_za6-bI?autoplay=1&loop=1&playlist=A2cu_za6-bI" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-    </div>
-
     <!-- Contenedor del mensaje y botón -->
     <div class="contenedor" id="inicio">
         <div class="mensaje">
@@ -88,6 +74,5 @@
             <button class="boton">Haz click aquí 💜</button>
         </a>
     </div>
-
 </body>
 </html>
