@@ -87,7 +87,7 @@
             box-shadow: 0 0 80px rgba(255,20,147,0.8), 0 0 100px rgba(255,0,255,0.8);
             animation: abrirEstallido 1.5s forwards;
             display: none;
-            z-index: 999; /* Asegura que el portal quede sobre otros elementos */
+            z-index: 998; /* Asegura que el portal esté detrás del video */
         }
 
         @keyframes abrirEstallido {
@@ -105,26 +105,13 @@
             background: rgba(0, 0, 0, 0.7); /* Fondo oscuro para el video */
             justify-content: center;
             align-items: center;
+            z-index: 999; /* Asegura que el video esté encima del portal */
         }
 
         #videoContainer iframe {
             width: 100%;
             height: 100%;
             border: none;
-        }
-
-        /* Efecto de Partículas flotando */
-        @keyframes floatingParticles {
-            0% { transform: translateY(0); opacity: 0; }
-            100% { transform: translateY(-10px); opacity: 1; }
-        }
-
-        .particles {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: floatingParticles 3s infinite alternate;
         }
 
         /* Fuente personalizada */
