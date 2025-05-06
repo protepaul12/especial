@@ -1,145 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️ REGALO PARA EL AMOR DE MI VIDA ❤️</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Dancing Script', cursive;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-            background: url('https://i.pinimg.com/736x/fb/3d/2a/fb3d2a1e78cb9903cc7340065abcd71e.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-        .contenedor {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .mensaje {
-            font-size: 24px;
-            background-color: rgba(138, 43, 226, 0.9);
-            padding: 25px;
-            border-radius: 20px;
-            max-width: 80%;
-            box-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        .boton {
-            background-color: #ff66b2;
-            border: 2px solid white;
-            color: white;
-            padding: 15px 30px;
-            font-size: 22px;
-            cursor: pointer;
-            border-radius: 15px;
-            margin-top: 20px;
-            transition: 0.3s;
-            position: relative;
-            z-index: 2;
-        }
-        .boton:hover {
-            background-color: white;
-            color: black;
-        }
-        .corazon {
-            position: absolute;
-            font-size: 70px;
-            opacity: 1;
-            animation: explotar 4s ease-out forwards, respirar 2s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 3;
-        }
+import tkinter as tk
+from tkinter import messagebox
 
-        @keyframes explotar {
-            0% {
-                transform: scale(0.5) translate(0, 0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(3) translate(var(--x), var(--y));
-                opacity: 0;
-            }
-        }
+def mostrar_mensaje():
+    mensaje = """Querida Sayu,
+    
+    En cada sonrisa tuya hay luz,
+    en cada palabra, calidez,
+    y en cada momento contigo,
+    un regalo invaluable.
+    
+    Que este pequeño detalle
+    refleje cuánto te apreciamos.
+    
+    Con amor,
+    [Tu nombre]
+    """
+    messagebox.showinfo("Mensaje para Sayu", mensaje)
 
-        @keyframes respirar {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.5);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="contenedor" id="inicio">
-        <div class="mensaje">
-            <p>Mi dulce Anita, estrella en mi cielo,<br>
-            Brillas radiante, un amor sin duelo.<br>
-            En cada latido, en cada suspiro,<br>
-            Eres mi todo, mi gran suspiro.<br><br>
-            Tus ojos reflejan la luz del alba,<br>
-            Tu risa, la brisa que el alma embalsama.<br>
-            No hay en el mundo amor tan sincero,<br>
-            Como el que siento por ti, mi lucero. ✨💖</p>
-        </div>
-        <button class="boton" onclick="explosionCorazones()">Haz click aquí 💜</button>
-    </div>
-    <audio id="sonido" src="https://www.fesliyanstudios.com/play-mp3/4381"></audio>
-    <script>
-        function explosionCorazones() {
-            document.getElementById("sonido").play();
-            let boton = document.querySelector('.boton');
-            let mensaje = document.querySelector('.mensaje');
-            let mensajeRect = mensaje.getBoundingClientRect();
+# Crear la ventana principal
+ventana = tk.Tk()
+ventana.title("Un regalo especial para Sayu")
+ventana.geometry("400x300")
 
-            const emoticonos = ["💞", "💖"];
+# Crear un título
+titulo = tk.Label(ventana, text="Para la increíble Sayu", font=("Arial", 18, "bold"), fg="darkred")
+titulo.pack(pady=20)
 
-            for (let i = 0; i < 30; i++) {
-                let corazon = document.createElement("div");
-                corazon.classList.add("corazon");
-                corazon.innerText = emoticonos[Math.floor(Math.random() * emoticonos.length)];
-                document.body.appendChild(corazon);
+# Botón para mostrar el mensaje
+boton = tk.Button(ventana, text="Haz clic para ver tu regalo 💝", font=("Arial", 14), command=mostrar_mensaje, bg="pink")
+boton.pack(pady=50)
 
-                let xPos = Math.random() * window.innerWidth;
-                let yPos = Math.random() * window.innerHeight;
-
-                corazon.style.left = `${xPos}px`;
-                corazon.style.top = `${yPos}px`;
-
-                let angulo = Math.random() * 2 * Math.PI;
-                let radio = Math.random() * 400 + 200;
-                let x = Math.cos(angulo) * radio;
-                let y = Math.sin(angulo) * radio;
-
-                corazon.style.setProperty('--x', `${x * 3}px`);
-                corazon.style.setProperty('--y', `${y * 3}px`);
-
-                setTimeout(() => corazon.remove(), 4000);
-            }
-
-            setTimeout(() => {
-                window.open("https://youtu.be/ZyowJ5GB2Dk?si=VlpmvB8T614xNhvy", "_blank");
-            }, 4000);
-        }
-    </script>
-</body>
-</html>
+ventana.mainloop()
