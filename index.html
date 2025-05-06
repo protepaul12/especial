@@ -1,33 +1,56 @@
-import tkinter as tk
-from tkinter import messagebox
-
-def mostrar_mensaje():
-    mensaje = """Querida Sayu,
-    
-    En cada sonrisa tuya hay luz,
-    en cada palabra, calidez,
-    y en cada momento contigo,
-    un regalo invaluable.
-    
-    Que este pequeño detalle
-    refleje cuánto te apreciamos.
-    
-    Con amor,
-    [Tu nombre]
-    """
-    messagebox.showinfo("Mensaje para Sayu", mensaje)
-
-# Crear la ventana principal
-ventana = tk.Tk()
-ventana.title("Un regalo especial para Sayu")
-ventana.geometry("400x300")
-
-# Crear un título
-titulo = tk.Label(ventana, text="Para la increíble Sayu", font=("Arial", 18, "bold"), fg="darkred")
-titulo.pack(pady=20)
-
-# Botón para mostrar el mensaje
-boton = tk.Button(ventana, text="Haz clic para ver tu regalo 💝", font=("Arial", 14), command=mostrar_mensaje, bg="pink")
-boton.pack(pady=50)
-
-ventana.mainloop()
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Sayu 💕</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe4e1;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        .hidden {
+            display: none;
+            font-size: 20px;
+            margin-top: 20px;
+            color: #ff1493;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hola, Sayu! 🌸</h1>
+        <p>Eres una persona increíble y quiero recordártelo siempre. Aquí hay una pequeña sorpresa para ti:</p>
+        <button onclick="mostrarSorpresa()">Haz clic aquí</button>
+        <div id="sorpresa" class="hidden">✨ ¡Eres especial y muy querida! ✨</div>
+    </div>
+    <script>
+        function mostrarSorpresa() {
+            document.getElementById("sorpresa").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
