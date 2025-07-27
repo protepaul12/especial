@@ -3,96 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Amanda 🌸</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <title>Para Ameli 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" />
   <style>
-    body {
+    * {
       margin: 0;
-      background: #fff0f6;
-      color: #ff69b4;
-      font-family: 'Pacifico', cursive, Arial, sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: black;
+      color: white;
+      font-family: 'UnifrakturCook', cursive, Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      overflow: hidden;
       padding: 2rem;
+      position: relative;
     }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
     .boton, .enlace {
-      font-size: 1.8rem;
+      font-size: 2rem;
       padding: 1rem 2rem;
       border-radius: 1.5rem;
-      border: 3px solid #ffb6c1;
-      background-color: #fff;
-      color: #ff69b4;
+      border: 3px solid purple;
+      background-color: transparent;
+      color: purple;
       cursor: pointer;
-      box-shadow: 0 0 10px #ffb6c1;
+      box-shadow: 0 0 10px purple;
       text-align: center;
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.3s;
+      transition: transform 0.2s ease;
       margin: 0.5rem;
+      position: relative;
+      z-index: 1;
     }
+
     .boton:hover, .enlace:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px #ffc0cb;
+      box-shadow: 0 0 20px violet;
     }
+
     .carta {
-      background: linear-gradient(to bottom right, #ffe6f0, #fff0f6);
+      background: linear-gradient(to bottom right, #121212, #000);
       border-radius: 2rem;
       padding: 2.5rem;
       max-width: 600px;
-      box-shadow: 0 0 30px #ffb6c1;
-      color: #ff69b4;
-      line-height: 1.8;
-      display: none;
+      box-shadow: 0 0 30px purple;
+      color: #d6bbf5;
+      line-height: 1.6;
       text-align: center;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      z-index: 1;
+      position: relative;
+      display: none;
     }
+
+    .carta.visible {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 1.5rem;
-      color: #ff1493;
-      text-shadow: 0 0 5px #ffb6c1;
+      color: purple;
+      text-shadow: 0 0 10px purple;
+    }
+
+    audio {
+      display: none;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
     }
   </style>
 </head>
 <body>
 
+  <canvas id="estrellas"></canvas>
+
+  <audio id="musica" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5f2bddee27.mp3?filename=love-110066.mp3" type="audio/mp3">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
   <button id="abrir" class="boton">Abrir carta 💌</button>
 
   <div id="carta" class="carta">
-    <h1>🌸 Para Amanda, luz serena 🌸</h1>
+    <h1>Mi querida Ameli</h1>
+
     <p>
-      Amanda, tu nombre suena<br />
-      como brisa que acaricia el alma,<br />
-      como tarde dorada en primavera,<br />
-      como esperanza que nunca se desarma.
+      Bajo un cielo que parece susurrar secretos,<br />
+      donde la luna habla en murmullos de cristal,<br />
+      nació este verso, suave y eterno,<br />
+      como si estuviera tejido con hilos de amor sin final.
     </p>
+
     <p>
-      Tu risa tiene el sabor<br />
-      de los sueños que no se olvidan,<br />
-      y tu mirada guarda amor<br />
-      de mil lunas compartidas.
+      Tus ojos… son luceros cuando todo calla,<br />
+      mi guía cuando me pierdo entre sombras y luz.<br />
+      Tu nombre suena como esa canción<br />
+      que el viento canta cuando nadie lo ve.
     </p>
+
     <p>
-      Hay algo en ti que es hogar,<br />
-      un rincón seguro y sincero,<br />
-      donde las penas pueden descansar<br />
-      y florece lo verdadero.
+      No existe reloj capaz de medir lo que siento,<br />
+      ni día marcado en el calendario que encierre este latir.<br />
+      Es como un pacto silencioso entre estrellas,<br />
+      que repiten tu nombre cada vez que brillan.
     </p>
+
     <p>
-      Eres poema sin final,<br />
-      suspiro en medio del ruido,<br />
-      el corazón late al compás<br />
-      del milagro de tu abrigo.
+      Y si un día el mundo se apaga en silencio,<br />
+      y el tiempo se queda sin pasos que dar,<br />
+      mi amor, como fuego que nunca se rinde,<br />
+      irá contigo… y sabrá encontrarte.
     </p>
-    <p>
-      Amanda, que nunca se apague<br />
-      esa chispa que llevas dentro,<br />
-      porque el mundo es más suave<br />
-      cuando tú estás en el centro.
-    </p>
+
     <div style="margin-top: 2rem;">
       <button id="cerrar" class="boton">Cerrar carta</button>
-      <a class="enlace" href="https://youtu.be/pz9O3UeM_o0?si=0jWjywI2uWc1d-3a" target="_blank">Ver video</a>
+      <a class="enlace" href="https://youtu.be/jrJD6uixHro?si=N-E7HY4jfTvAAm9b" target="_blank">Ver video</a>
     </div>
   </div>
 
@@ -100,17 +148,70 @@
     const abrir = document.getElementById("abrir");
     const cerrar = document.getElementById("cerrar");
     const carta = document.getElementById("carta");
+    const musica = document.getElementById("musica");
 
     abrir.addEventListener("click", () => {
       abrir.style.display = "none";
-      carta.style.display = "block";
+      carta.classList.add("visible");
+      musica.play();
     });
 
     cerrar.addEventListener("click", () => {
-      carta.style.display = "none";
-      abrir.style.display = "inline-block";
+      carta.classList.remove("visible");
+      setTimeout(() => {
+        carta.style.display = "none";
+        abrir.style.display = "inline-block";
+        musica.pause();
+        musica.currentTime = 0;
+      }, 600);
     });
-  </script>
 
+    const observer = new MutationObserver(() => {
+      if (carta.classList.contains("visible")) {
+        carta.style.display = "block";
+      }
+    });
+    observer.observe(carta, { attributes: true });
+
+    // Fondo animado de estrellas
+    const canvas = document.getElementById('estrellas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let estrellas = [];
+
+    function initEstrellas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      estrellas = [];
+      for (let i = 0; i < 120; i++) {
+        estrellas.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5,
+          speed: Math.random() * 0.5 + 0.2
+        });
+      }
+    }
+
+    function animarEstrellas() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = 'white';
+      estrellas.forEach(estrella => {
+        ctx.beginPath();
+        ctx.arc(estrella.x, estrella.y, estrella.radius, 0, Math.PI * 2);
+        ctx.fill();
+        estrella.y += estrella.speed;
+        if (estrella.y > height) {
+          estrella.y = 0;
+          estrella.x = Math.random() * width;
+        }
+      });
+      requestAnimationFrame(animarEstrellas);
+    }
+
+    window.addEventListener('resize', initEstrellas);
+    initEstrellas();
+    animarEstrellas();
+  </script>
 </body>
 </html>
