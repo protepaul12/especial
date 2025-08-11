@@ -2,97 +2,89 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Ameli 💌</title>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Valy 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* estilos como antes, nada cambia excepto p */
     body {
-      background: black;
-      color: white;
-      font-family: 'UnifrakturCook', cursive, Arial, sans-serif;
+      background: linear-gradient(135deg, #fbc7c7 0%, #f9f1f5 100%);
+      font-family: 'Baloo 2', cursive, Arial, sans-serif;
+      color: #5a2a68;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      overflow: hidden;
       padding: 2rem;
+      overflow: hidden;
       position: relative;
     }
-
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
+    /* otros estilos (botones, carta, etc) idénticos a los anteriores */
     .boton, .enlace {
-      font-size: 2rem;
-      padding: 1rem 2rem;
-      border-radius: 1.5rem;
-      border: 3px solid purple;
-      background-color: transparent;
-      color: purple;
+      font-family: 'Baloo 2', cursive, Arial, sans-serif;
+      font-size: 1.8rem;
+      padding: 1rem 2.5rem;
+      border-radius: 2rem;
+      border: 3px solid #d46a6a;
+      background-color: #ffe6e6;
+      color: #d46a6a;
       cursor: pointer;
-      box-shadow: 0 0 10px purple;
+      box-shadow: 0 0 15px #f7a0a0;
+      margin: 0.5rem;
       text-align: center;
       text-decoration: none;
-      transition: transform 0.2s ease;
-      margin: 0.5rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       position: relative;
       z-index: 1;
+      user-select: none;
     }
-
     .boton:hover, .enlace:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px violet;
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #f79f9f;
+      background-color: #ffd6d6;
     }
-
     .carta {
-      background: linear-gradient(to bottom right, #121212, #000);
-      border-radius: 2rem;
-      padding: 2.5rem;
+      background: #fff0f6;
+      border-radius: 2.5rem;
+      padding: 3rem 2.5rem;
       max-width: 600px;
-      box-shadow: 0 0 30px purple;
-      color: #d6bbf5;
+      box-shadow: 0 10px 40px rgba(212, 106, 106, 0.4);
+      color: #5a2a68;
       line-height: 1.6;
       text-align: center;
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(0.85);
       transition: opacity 0.6s ease, transform 0.6s ease;
-      z-index: 1;
-      position: relative;
       display: none;
+      position: relative;
+      z-index: 1;
+      font-size: 1.15rem;
     }
-
     .carta.visible {
       display: block;
       opacity: 1;
       transform: scale(1);
     }
-
     h1 {
+      font-family: 'UnifrakturCook', cursive, Arial, sans-serif;
+      font-weight: 700;
       font-size: 3rem;
       margin-bottom: 1.5rem;
-      color: purple;
-      text-shadow: 0 0 10px purple;
+      color: #d46a6a;
+      text-shadow: 0 0 15px #f7a0a0;
     }
-
-    audio {
-      display: none;
-    }
-
     p {
       margin-bottom: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -108,39 +100,14 @@
   <button id="abrir" class="boton">Abrir carta 💌</button>
 
   <div id="carta" class="carta">
-    <h1>Mi querida Ameli</h1>
-
+    <h1>Mi querida Valy</h1>
     <p>
-      Bajo un cielo que parece susurrar secretos,<br />
-      donde la luna habla en murmullos de cristal,<br />
-      nació este verso, suave y eterno,<br />
-      como si estuviera tejido con hilos de amor sin final.
-    </p>
-
-    <p>
-      Tus ojos… son luceros cuando todo calla,<br />
-      mi guía cuando me pierdo entre sombras y luz.<br />
-      Tu nombre suena como esa canción<br />
-      que el viento canta cuando nadie lo ve.
-    </p>
-
-    <p>
-      No existe reloj capaz de medir lo que siento,<br />
-      ni día marcado en el calendario que encierre este latir.<br />
-      Es como un pacto silencioso entre estrellas,<br />
-      que repiten tu nombre cada vez que brillan.
-    </p>
-
-    <p>
-      Y si un día el mundo se apaga en silencio,<br />
-      y el tiempo se queda sin pasos que dar,<br />
-      mi amor, como fuego que nunca se rinde,<br />
-      irá contigo… y sabrá encontrarte.
+      En tus ojos brilla la luz, un faro que guía mi corazón. Tu sonrisa es un regalo, un tesoro que atesoro. Tu voz es música para mí, un susurro que me hace soñar. Tu presencia es un refugio, un lugar donde me siento en paz. Quiero estar contigo siempre, compartir momentos y sueños. Eres mi estrella guía, mi amor, mi corazón late por ti ❤️🥹
     </p>
 
     <div style="margin-top: 2rem;">
       <button id="cerrar" class="boton">Cerrar carta</button>
-      <a class="enlace" href="https://youtu.be/jrJD6uixHro?si=N-E7HY4jfTvAAm9b" target="_blank">Ver video</a>
+      <a class="enlace" href="https://youtu.be/jrJD6uixHro?si=N-E7HY4jfTvAAm9b" target="_blank" rel="noopener noreferrer">Ver video</a>
     </div>
   </div>
 
@@ -187,7 +154,7 @@
         estrellas.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          radius: Math.random() * 1.5,
+          radius: Math.random() * 1.5 + 0.7,
           speed: Math.random() * 0.5 + 0.2
         });
       }
@@ -195,11 +162,15 @@
 
     function animarEstrellas() {
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = 'white';
       estrellas.forEach(estrella => {
+        const gradient = ctx.createRadialGradient(estrella.x, estrella.y, 0, estrella.x, estrella.y, estrella.radius * 6);
+        gradient.addColorStop(0, '#fff5fb');
+        gradient.addColorStop(1, 'rgba(212,106,106,0)');
+        ctx.fillStyle = gradient;
         ctx.beginPath();
         ctx.arc(estrella.x, estrella.y, estrella.radius, 0, Math.PI * 2);
         ctx.fill();
+
         estrella.y += estrella.speed;
         if (estrella.y > height) {
           estrella.y = 0;
@@ -213,5 +184,6 @@
     initEstrellas();
     animarEstrellas();
   </script>
+
 </body>
 </html>
